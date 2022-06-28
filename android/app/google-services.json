@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "865501550689",
+    "firebase_url": "https://ecotech-8443c-default-rtdb.firebaseio.com",
+    "project_id": "ecotech-8443c",
+    "storage_bucket": "ecotech-8443c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:865501550689:android:37ade269f208531109b220",
+        "android_client_info": {
+          "package_name": "com.example.ecotech"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "865501550689-8l6e3f7rpcjooagmt5s8bisf00u2d7ip.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ecotech",
+            "certificate_hash": "57ac03a62e3069fb280a316b96bc9ed41caa4f90"
+          }
+        },
+        {
+          "client_id": "865501550689-r4qaq38bcrf4ctd39f5fdr4r3rnm6bf6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCvo7r-m7E2JjMK-9MY38bzUHJ6yZi5Gk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "865501550689-r4qaq38bcrf4ctd39f5fdr4r3rnm6bf6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "865501550689-anv9ddgbudvtbisttpqp6ea42l2iheiu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ecotech"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
