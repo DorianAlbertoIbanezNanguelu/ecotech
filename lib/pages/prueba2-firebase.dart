@@ -11,7 +11,7 @@ import 'prueba-firebase.dart';
 class prueba2_firebase extends StatelessWidget {
   const prueba2_firebase({Key? key}) : super(key: key);
 
-  static const String _title = 'Flutter Firebase';
+  static const String _title = 'Eco-Tech Irrigation';
 
   @override
   Widget build(BuildContext context) {
@@ -37,17 +37,11 @@ class _MyStatefulWidgetState extends State<_prueba2_firebase> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color_Selector.c_purpura,
+        backgroundColor: Color_Selector.p_celeste,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Text("Iniciar sesión"),
-            Image.asset(
-              'assets/images/splash.png',
-              fit: BoxFit.contain,
-              height: 50,
-              color: Color_Selector.c_blanco,
-            ),
+          children: const [
+            Text("Iniciar sesión"),
           ],
         ),
       ),
@@ -70,7 +64,7 @@ class _MyStatefulWidgetState extends State<_prueba2_firebase> {
                     Flexible(
                       flex: 1,
                       child: Image.asset(
-                        'assets/images/firebase_logo.png',
+                        'assets/images/ecotech-icon.png',
                         height: 160,
                       ),
                     ),
@@ -78,7 +72,7 @@ class _MyStatefulWidgetState extends State<_prueba2_firebase> {
                     const Text(
                       'ECO-TECH',
                       style: TextStyle(
-                        color: Color_Selector.c_amarillo,
+                        color: Color_Selector.p_verde,
                         fontSize: 40,
                       ),
                     ),
@@ -86,7 +80,7 @@ class _MyStatefulWidgetState extends State<_prueba2_firebase> {
                       'Bienvenido, favor de iniciar sesión',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: Color_Selector.c_naranja,
+                        color: Color_Selector.p_verdeLima,
                         fontSize: 40,
                       ),
                     ),
@@ -103,7 +97,7 @@ class _MyStatefulWidgetState extends State<_prueba2_firebase> {
                   }
                   return const CircularProgressIndicator(
                     valueColor:
-                        AlwaysStoppedAnimation<Color>(Color_Selector.c_morado),
+                        AlwaysStoppedAnimation<Color>(Color_Selector.e_cuidado),
                   );
                 },
               ),

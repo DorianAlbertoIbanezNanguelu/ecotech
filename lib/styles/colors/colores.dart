@@ -32,4 +32,24 @@ class Color_Selector {
   static const Color c_naranja = Color(0xffF57C00);
 
   static const Color c_amarillo = Color(0xffFFCA28);
+
+  static const Color e_peligro = Color(0xffaf0e0e);
+
+  static const Color e_advertencia = Color(0xffaf5f0e);
+
+  static const Color e_cuidado = Color(0xffafaf0e);
+
+  static const Color e_revision = Color(0xff5faf0e);
+
+  static const Color e_estable = Color(0xff0eaf0e);
+
+  static const Color e_optimo = Color(0xff0eaf5f);
+
+  static const Color p_verdeLima = Color(0xffb4d64e);
+
+  static const Color p_celeste = Color(0xff31d6f2);
+
+  static const Color p_verde = Color(0xff62a635);
+
+  static const Color p_verdeClaro = Color(0xff8ed063);
 }

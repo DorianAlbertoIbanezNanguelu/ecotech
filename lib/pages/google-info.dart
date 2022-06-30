@@ -198,8 +198,6 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                     ),
                   ),
             const SizedBox(height: 8.0),
-            Carta_1(),
-            const SizedBox(height: 8.0),
             Boton_CerrarVentana(),
             const SizedBox(height: 8.0),
           ],
