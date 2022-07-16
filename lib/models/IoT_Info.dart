@@ -5,7 +5,8 @@ import 'dart:convert';
 import 'package:requests/requests.dart';
 
 class Data {
-  final String? id, valor, dispositivo;
+  final String? dispositivo;
+  final int? id, valor;
 
   Data({
     this.id,
@@ -17,9 +18,9 @@ class Data {
     Map<String, dynamic> json,
   ) {
     return Data(
-      id: json['id'],
+      id: int.parse(json['id']),
       dispositivo: json['dispositivo'],
-      valor: json['valor'],
+      valor: int.parse(json['valor']),
     );
   }
 }

@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       // debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      initialRoute: 'PHP',
+      initialRoute: 'initialFirebase2',
       routes: {
         'InitialPage': (BuildContext context) => const SplashView(),
         'PHP': (BuildContext context) => prueba_php(),

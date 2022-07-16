@@ -1,5 +1,7 @@
 // ignore_for_file: file_names, use_key_in_widget_constructors, camel_case_types, non_constant_identifier_names, library_private_types_in_public_api, use_build_context_synchronously
 
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +10,7 @@ import '../utils/authentication.dart';
 import '../widgets/image_row.dart';
 import '../widgets/slider_widget.dart';
 import 'prueba2-firebase.dart';
+import '../models/IoT_Info.dart';
 
 class UserInfoScreen extends StatefulWidget {
   const UserInfoScreen({Key? key, required User? user})
@@ -24,7 +27,11 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
   late User _user;
   bool _isSigningOut = false;
   int pageIndex = 0;
-  int _selectedIndex = 1;
+  late Future<List<Data>> futureData,
+      futureAgua,
+      futureT_H,
+      futureMotor,
+      futureIntervalo;
 
   Route _routeToSignInScreen() {
     return PageRouteBuilder(
@@ -50,6 +57,16 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
   void initState() {
     _user = widget._user!;
     super.initState();
+    futureData = fetchData();
+    futureT_H = fetchT_H();
+
+    // defines a timer
+    Timer.periodic(const Duration(seconds: 5), (Timer t) {
+      setState(() {
+        futureData = fetchData();
+        futureT_H = fetchT_H();
+      });
+    });
   }
 
   final List<Widget> _pages = <Widget>[
@@ -89,15 +106,9 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
 
   @override
   Widget build(BuildContext context) {
-    void _onItemTapped(int index) {
-      setState(() {
-        _selectedIndex = index;
-      });
-    }
-
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color_Selector.c_purpura,
+        backgroundColor: Color_Selector.c_naranja,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -207,34 +218,35 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
         children: <Widget>[
           ListView(
             children: <Widget>[
-              Center(
-                child: _pages.elementAt(_selectedIndex),
-              )
+              FutureBuilder<List<Data>>(
+                future: futureT_H,
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    List<Data>? data = snapshot.data;
+                    return Container(
+                      height: (MediaQuery.of(context).size.height * 0.25),
+                      width: (MediaQuery.of(context).size.width),
+                      color: data![0].valor! >= 25
+                          ? Color_Selector.e_estable
+                          : Color_Selector.e_peligro,
+                      child: Stack(
+                        children: <Widget>[
+                          Container(
+                            alignment: Alignment.centerLeft,
+                          ),
+                        ],
+                      ),
+                    );
+                  } else if (snapshot.hasError) {
+                    return Text("${snapshot.error}");
+                  }
+                  // By default show a loading spinner.
+                  return const CircularProgressIndicator();
+                },
+              ),
             ],
           ),
         ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Trabajos',
-            backgroundColor: Color_Selector.c_rosaFuerte,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-            backgroundColor: Color_Selector.c_verde,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'Escuela',
-            backgroundColor: Color_Selector.c_naranja,
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Color_Selector.c_purpura,
-        onTap: _onItemTapped,
       ),
     );
   }

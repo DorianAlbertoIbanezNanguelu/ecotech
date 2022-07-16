@@ -41,7 +41,7 @@ class _PaginaState extends State<Pagina> {
     // defines a timer
     Timer.periodic(const Duration(seconds: 5), (Timer t) {
       setState(() {
-        futureData = fetchData();
+        futureT_H = fetchT_H();
       });
     });
   }
@@ -56,7 +56,7 @@ class _PaginaState extends State<Pagina> {
             if (snapshot.hasData) {
               List<Data>? data = snapshot.data;
               return CircleAvatar(
-                backgroundColor: data![0].valor == "1"
+                backgroundColor: data![0].valor == 1
                     ? Color_Selector.e_estable
                     : Color_Selector.e_peligro,
               );
