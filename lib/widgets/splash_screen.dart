@@ -3,7 +3,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
-import '../pages/login_parte1.dart';
+import '../pages/prueba2-firebase.dart';
 import '../styles/colors/colores.dart';
 
 class SplashView extends StatefulWidget {
@@ -29,18 +29,14 @@ class _SplashViewState extends State<SplashView> {
           width: double.infinity,
           child: CustomPaint(
             painter: _SplashCanvas(),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(30),
-                  child: Image.asset(
-                    "images/splash.png",
-                    alignment: Alignment.center,
-                    height: 150,
-                  ),
+            child: Container(
+              constraints: const BoxConstraints.expand(),
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/images/drip-1.jpg"),
+                  fit: BoxFit.cover,
                 ),
-              ],
+              ),
             ),
           ),
         ),
@@ -49,11 +45,11 @@ class _SplashViewState extends State<SplashView> {
   }
 
   _toOnbording() async {
-    await Future.delayed(const Duration(milliseconds: 6000), () {});
+    await Future.delayed(const Duration(milliseconds: 3000), () {});
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => const Login_parte1(),
+        builder: (context) => const prueba2_firebase(),
       ),
     );
   }
@@ -64,7 +60,7 @@ class _SplashCanvas extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final paint = Paint();
     // paint.color = Colors.amber;
-    paint.color = Color_Selector.c_verde;
+    paint.color = Color_Selector.p_verdeClaro;
     // paint.style = PaintingStyle.stroke;
     paint.style = PaintingStyle.fill;
     paint.strokeWidth = 5;
@@ -88,7 +84,7 @@ class _SplashCanvas extends CustomPainter {
 
     final paint2 = Paint();
 
-    paint2.color = Color_Selector.c_verde;
+    paint2.color = Color_Selector.p_verdeLima;
     paint2.style = PaintingStyle.fill;
     paint2.strokeWidth = 5;
 

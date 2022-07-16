@@ -1,7 +1,7 @@
+import 'package:ecotech/pages/prueba%20php.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-import 'pages/login_parte1.dart';
 import 'pages/prueba-firebase.dart';
 import 'pages/prueba2-firebase.dart';
 import 'widgets/splash_screen.dart';
@@ -24,10 +24,10 @@ class MyApp extends StatelessWidget {
       // debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      initialRoute: 'initialFirebase2',
+      initialRoute: 'PHP',
       routes: {
         'InitialPage': (BuildContext context) => const SplashView(),
-        'InitialLoginCorte3': (BuildContext context) => const Login_parte1(),
+        'PHP': (BuildContext context) => prueba_php(),
         'initialFirebase': (BuildContext context) => const prueba_firebase(),
         'initialFirebase2': (BuildContext context) => const prueba2_firebase(),
       },

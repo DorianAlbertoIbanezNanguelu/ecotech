@@ -1,12 +1,10 @@
 // ignore_for_file: camel_case_types, deprecated_member_use, file_names
 
 import 'package:flutter/material.dart';
-import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 import '../styles/colors/colores.dart';
 import '../utils/authentication.dart';
 import '../widgets/google-sign-in.dart';
-import 'prueba-firebase.dart';
 
 class prueba2_firebase extends StatelessWidget {
   const prueba2_firebase({Key? key}) : super(key: key);

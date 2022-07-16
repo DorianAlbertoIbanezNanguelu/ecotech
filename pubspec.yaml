@@ -42,6 +42,7 @@ dependencies:
   flutter_signin_button: ^2.0.0
   roundcheckbox: ^2.0.4+1
   twitter_login: ^4.2.3
+  requests: ^4.4.1
 
 dev_dependencies:
   flutter_test:
