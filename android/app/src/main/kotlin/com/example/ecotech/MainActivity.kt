@@ -1,4 +1,4 @@
-package com.example.ecotech
+package com.ecoinc.ecotech
 
 import io.flutter.embedding.android.FlutterActivity
 

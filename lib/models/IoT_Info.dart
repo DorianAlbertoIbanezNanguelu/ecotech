@@ -53,6 +53,17 @@ Future<List<Data>> fetchAgua() async {
   }
 }
 
+Future<String> setAgua() async {
+  final response = await Requests.post(
+    'https://ecotech-up.000webhostapp.com/prueba/setAgua.php?nivel_Agua=1',
+  );
+  if (response.statusCode == 200) {
+    return "Enviado";
+  } else {
+    throw Exception('Unexpected error occured!');
+  }
+}
+
 Future<List<Data>> fetchIntervalo() async {
   final response = await Requests.get(
     'https://ecotech-up.000webhostapp.com/prueba/getIntervalo.php',

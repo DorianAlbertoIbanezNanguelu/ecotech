@@ -21,11 +21,20 @@ class DefaultFirebaseOptions {
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
-        return android;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for android - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -44,46 +53,12 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyClOSI1yJ-GlgPdVj53Bn2HuBKTZ0wJI3w',
-    appId: '1:865501550689:web:27b91fcb939e317f09b220',
-    messagingSenderId: '865501550689',
-    projectId: 'ecotech-8443c',
-    authDomain: 'ecotech-8443c.firebaseapp.com',
-    databaseURL: 'https://ecotech-8443c-default-rtdb.firebaseio.com',
-    storageBucket: 'ecotech-8443c.appspot.com',
-    measurementId: 'G-8CQXEVHKB2',
-  );
-
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDCvo7r-m7E2JjMK-9MY38bzUHJ6yZi5Gk',
-    appId: '1:865501550689:android:37ade269f208531109b220',
-    messagingSenderId: '865501550689',
-    projectId: 'ecotech-8443c',
-    databaseURL: 'https://ecotech-8443c-default-rtdb.firebaseio.com',
-    storageBucket: 'ecotech-8443c.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDUz9J6swnSefGLv3hclhXkwcSmhX1LACI',
-    appId: '1:865501550689:ios:d3473e6962bf404b09b220',
-    messagingSenderId: '865501550689',
-    projectId: 'ecotech-8443c',
-    databaseURL: 'https://ecotech-8443c-default-rtdb.firebaseio.com',
-    storageBucket: 'ecotech-8443c.appspot.com',
-    androidClientId: '865501550689-8l6e3f7rpcjooagmt5s8bisf00u2d7ip.apps.googleusercontent.com',
-    iosClientId: '865501550689-anv9ddgbudvtbisttpqp6ea42l2iheiu.apps.googleusercontent.com',
-    iosBundleId: 'com.example.ecotech',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDUz9J6swnSefGLv3hclhXkwcSmhX1LACI',
-    appId: '1:865501550689:ios:d3473e6962bf404b09b220',
-    messagingSenderId: '865501550689',
-    projectId: 'ecotech-8443c',
-    databaseURL: 'https://ecotech-8443c-default-rtdb.firebaseio.com',
-    storageBucket: 'ecotech-8443c.appspot.com',
-    androidClientId: '865501550689-8l6e3f7rpcjooagmt5s8bisf00u2d7ip.apps.googleusercontent.com',
-    iosClientId: '865501550689-anv9ddgbudvtbisttpqp6ea42l2iheiu.apps.googleusercontent.com',
-    iosBundleId: 'com.example.ecotech',
+    apiKey: 'AIzaSyCTRStTHUibisqaCEjG52DhiHAXFgBJr2I',
+    appId: '1:95531816103:web:ba2320c4727b5d1e27b782',
+    messagingSenderId: '95531816103',
+    projectId: 'eco-tech-b038c',
+    authDomain: 'eco-tech-b038c.firebaseapp.com',
+    storageBucket: 'eco-tech-b038c.appspot.com',
+    measurementId: 'G-WJXBJZ04FP',
   );
 }

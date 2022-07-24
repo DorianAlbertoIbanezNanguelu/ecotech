@@ -1,50 +1,42 @@
 {
   "project_info": {
-    "project_number": "865501550689",
-    "firebase_url": "https://ecotech-8443c-default-rtdb.firebaseio.com",
-    "project_id": "ecotech-8443c",
-    "storage_bucket": "ecotech-8443c.appspot.com"
+    "project_number": "95531816103",
+    "project_id": "eco-tech-b038c",
+    "storage_bucket": "eco-tech-b038c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:865501550689:android:37ade269f208531109b220",
+        "mobilesdk_app_id": "1:95531816103:android:3f55d6108fc7022f27b782",
         "android_client_info": {
-          "package_name": "com.example.ecotech"
+          "package_name": "com.ecoinc.ecotech"
         }
       },
       "oauth_client": [
         {
-          "client_id": "865501550689-8l6e3f7rpcjooagmt5s8bisf00u2d7ip.apps.googleusercontent.com",
+          "client_id": "95531816103-svnedotreabanc7lig6ds1o62lf3ci8q.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.ecotech",
-            "certificate_hash": "57ac03a62e3069fb280a316b96bc9ed41caa4f90"
+            "package_name": "com.ecoinc.ecotech",
+            "certificate_hash": "2517967154b357664166ae0ebf7f49d1fc9970af"
           }
         },
         {
-          "client_id": "865501550689-r4qaq38bcrf4ctd39f5fdr4r3rnm6bf6.apps.googleusercontent.com",
+          "client_id": "95531816103-60rpu1olrg9sohl47bt9r73t8siqej7m.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDCvo7r-m7E2JjMK-9MY38bzUHJ6yZi5Gk"
+          "current_key": "AIzaSyBXuVDQVoWYRAhdcGrdEe-v0ps48n5qw6k"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "865501550689-r4qaq38bcrf4ctd39f5fdr4r3rnm6bf6.apps.googleusercontent.com",
+              "client_id": "95531816103-60rpu1olrg9sohl47bt9r73t8siqej7m.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "865501550689-anv9ddgbudvtbisttpqp6ea42l2iheiu.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.ecotech"
-              }
             }
           ]
         }

@@ -4,11 +4,12 @@ import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_calendar/calendar.dart';
 
+import '../models/calendar.dart';
+import '../models/fechas.dart';
 import '../styles/colors/colores.dart';
 import '../utils/authentication.dart';
-import '../widgets/image_row.dart';
-import '../widgets/slider_widget.dart';
 import 'prueba2-firebase.dart';
 import '../models/IoT_Info.dart';
 
@@ -24,6 +25,7 @@ class UserInfoScreen extends StatefulWidget {
 }
 
 class _UserInfoScreenState extends State<UserInfoScreen> {
+  late Future<List<Meeting>> futureHistorial;
   late User _user;
   bool _isSigningOut = false;
   int pageIndex = 0;
@@ -59,50 +61,17 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
     super.initState();
     futureData = fetchData();
     futureT_H = fetchT_H();
+    futureHistorial = sfHistorial();
 
     // defines a timer
     Timer.periodic(const Duration(seconds: 5), (Timer t) {
       setState(() {
         futureData = fetchData();
         futureT_H = fetchT_H();
+        futureHistorial = sfHistorial();
       });
     });
   }
-
-  final List<Widget> _pages = <Widget>[
-    Container(),
-    Column(
-      children: [
-        const Padding(
-          padding: EdgeInsets.only(bottom: 40),
-          child: Carousel(),
-        ),
-        Card(
-          // Con esta propiedad modificamos la forma de nuestro card
-          // Aqui utilizo RoundedRectangleBorder para proporcionarle esquinas circulares al Card
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-
-          // Con esta propiedad agregamos margen a nuestro Card
-          // El margen es la separación entre widgets o entre los bordes del widget padre e hijo
-          margin: const EdgeInsets.all(15),
-
-          // Con esta propiedad agregamos elevación a nuestro card
-          // La sombra que tiene el Card aumentará
-          elevation: 10,
-
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: circular_events(),
-            ),
-          ),
-        ),
-        const ImageRow()
-      ],
-    ),
-    Container(),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -114,7 +83,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
           children: [
             const Text("Bienvenido!"),
             Image.asset(
-              'assets/images/splash.png',
+              'assets/images/ecotech-transparent.png',
               fit: BoxFit.contain,
               height: 50,
               color: Color_Selector.c_blanco,
@@ -224,7 +193,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                   if (snapshot.hasData) {
                     List<Data>? data = snapshot.data;
                     return Container(
-                      height: (MediaQuery.of(context).size.height * 0.25),
+                      height: (MediaQuery.of(context).size.height * 0.12),
                       width: (MediaQuery.of(context).size.width),
                       color: data![0].valor! >= 25
                           ? Color_Selector.e_estable
@@ -232,7 +201,15 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                       child: Stack(
                         children: <Widget>[
                           Container(
+                            padding: EdgeInsets.only(left: 20),
                             alignment: Alignment.centerLeft,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(100.0),
+                              child: Image.network(
+                                "http://ecotech-up.000webhostapp.com/planta.jpg",
+                                scale: 0.75,
+                              ),
+                            ),
                           ),
                         ],
                       ),
@@ -241,6 +218,31 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                     return Text("${snapshot.error}");
                   }
                   // By default show a loading spinner.
+                  return const CircularProgressIndicator();
+                },
+              ),
+              FutureBuilder(
+                future: futureHistorial,
+                builder: (BuildContext context, AsyncSnapshot snapshot) {
+                  if (snapshot.data != null) {
+                    return SafeArea(
+                      child: Container(
+                        height: (MediaQuery.of(context).size.height * 0.60),
+                        child: SfCalendar(
+                          view: CalendarView.week,
+                          dataSource: MeetingDataSource(snapshot.data),
+                          timeSlotViewSettings: const TimeSlotViewSettings(
+                            startHour: 5,
+                            endHour: 23,
+                          ),
+                        ),
+                      ),
+                    );
+                  } else if (snapshot.hasError) {
+                    return Container(
+                      child: Center(child: Text("${snapshot.error}")),
+                    );
+                  }
                   return const CircularProgressIndicator();
                 },
               ),
